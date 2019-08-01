@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pt_project_1/contants/constant.dart';
+
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -34,30 +35,31 @@ class LoginPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-          color: Colors.purple,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              FlatButton(
-                child: Text(
-                  'LOG IN',
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: () {
-                  Navigator.pushNamed(context, loginScreen);
-                },
+        color: Colors.purple,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            FlatButton(
+              child: Text(
+                'LOG IN',
+                style: TextStyle(color: Colors.white),
               ),
-              FlatButton(
-                child: Text(
-                  'SIGN UP',
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: () {
-                  Navigator.pushNamed(context, signUp);
-                },
-              )
-            ],
-          ),),
+              onPressed: () {
+                Navigator.pushNamed(context, loginScreen);
+              },
+            ),
+            FlatButton(
+              child: Text(
+                'SIGN UP',
+                style: TextStyle(color: Colors.white),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, signUp);
+              },
+            )
+          ],
+        ),
+      ),
     );
   }
 }

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pt_project_1/views/pages/login_page.dart';
+import 'package:pt_project_1/views/pages/login_screen.dart';
+import 'contants/constant.dart';
+import 'views/pages/sign_up.dart';
+
 
 class App extends StatelessWidget {
   // This widget is the root of your application.
@@ -12,7 +16,12 @@ class App extends StatelessWidget {
        
         primarySwatch: Colors.purple,
       ),
-      home:LoginPage()
+      home:LoginPage(),
+      routes:{
+        loginPage:(BuildContext context) => LoginPage(),
+        signUp:(BuildContext context)=> SignUpPage(),
+        loginScreen:(BuildContext context)=> LoginScreen(),
+      } ,
     );
   }
 }
