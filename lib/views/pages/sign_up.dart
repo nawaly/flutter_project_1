@@ -73,7 +73,7 @@ class SignUpPage extends StatelessWidget {
           ),
           Row(
             children: <Widget>[
-              Expanded(
+              Expanded( 
                 child: Padding(
                   padding: const EdgeInsets.only(
                       left: 40, top: 10, right: 40, bottom: 10),

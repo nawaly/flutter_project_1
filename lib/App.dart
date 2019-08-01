@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pt_project_1/views/pages/home_Page.dart';
 import 'package:pt_project_1/views/pages/login_page.dart';
 import 'package:pt_project_1/views/pages/login_screen.dart';
 import 'contants/constant.dart';
@@ -21,6 +22,7 @@ class App extends StatelessWidget {
         loginPage:(BuildContext context) => LoginPage(),
         signUp:(BuildContext context)=> SignUpPage(),
         loginScreen:(BuildContext context)=> LoginScreen(),
+        homepage:(BuildContext context)=> HomePage(),
       } ,
     );
   }
