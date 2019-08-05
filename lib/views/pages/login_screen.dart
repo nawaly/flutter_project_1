@@ -121,17 +121,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: RaisedButton(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30)),
-                          onPressed: () {
-                            
-                            if (_signformkey.currentState.validate())
-                              print(_emailTextEditingController.text);
-                              Navigator.pushReplacementNamed(context, homepage);
-                          },
                           child: Text(
                             'LOG IN',
                             style: TextStyle(color: Colors.white),
                           ),
                           color: Colors.deepPurple,
+                          onPressed: () {
+                            if (_signformkey.currentState.validate())
+                              Navigator.pushReplacementNamed(context, homepage);
+                          },
                         ),
                       ),
                     )
