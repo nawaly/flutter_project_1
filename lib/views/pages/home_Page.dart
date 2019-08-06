@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pt_project_1/views/screens/category_screen.dart';
 import 'package:pt_project_1/views/screens/today_screens.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,9 +14,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     List<Widget> _screens = <Widget>[
       TodayScreen(),
-      Container(
-        height: 400,
-        color: Colors.redAccent,
+      CategoryScreen(
       ),
       Container(
         height: 400,
