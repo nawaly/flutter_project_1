@@ -1,13 +1,13 @@
 import 'package:flutter/foundation.dart';
 
 class Album{
-final String cover;
-final String title;
-final String avatar;
-final String subtitle;
-final String author;
-final int comments;
-final bool isHot;
+final String cover; //cover picture
+final String title; //heading
+final String avatar; //profile
+final String subtitle; //after heading information
+final String author; //name of person
+final int comments; //number of comments in the message icon
+final bool isHot; //fire icon
 
   Album(
      {@required this.cover, 
@@ -21,13 +21,13 @@ final bool isHot;
 }
 List<Album> albums = <Album>[
 Album (
- author: 'nawww',
+ author: 'Mozilla',
  avatar: 'assets/icons/1.jpg', 
  comments: 10, 
  cover: 'assets/icons/2.jpg', 
  isHot: true, 
- subtitle: 'monday',
- title: 'this one'),
+ subtitle: 'Soprano Announces His New',
+ title: 'GAMING'),
 
 Album (
   author: 'nasss',
@@ -45,5 +45,5 @@ Album (
  cover: 'assets/icons/3.jpg', 
  isHot: false, 
  subtitle: 'wednesday',
- title: 'this three')
+ title: 'this three'),
 ];

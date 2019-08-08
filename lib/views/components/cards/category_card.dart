@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:pt_project_1/models/category.dart';
 
+// design boxes in category tab
 class CategoryCard extends StatelessWidget {
   final Category category;
 

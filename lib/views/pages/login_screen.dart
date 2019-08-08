@@ -8,18 +8,40 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  //focus node
   FocusNode _emailFocusNode = FocusNode();
   FocusNode _passwordFocusNode = FocusNode();
+
+  //keys
   final _signformkey = GlobalKey<FormState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   bool _isObscure = true;
+
   // focus nodes grabs input written by user and sends to database
   TextEditingController _emailTextEditingController = TextEditingController();
   TextEditingController _passwordTextEditingController =
       TextEditingController();
 //texteditingcomtroller controls text field to be used somewhere else
+
+//variables
+//temporary login credentials
+  final String _email = "nawal@gmail.com";
+  final String _password = "12345";
+
+  //method authonticating email
+
+  //bool _checkpassword() {
+  //if (_password.compareTo(_passwordTextEditingController.text) == 0) {
+  // return true;
+  //} else
+  // return false;
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: _scaffoldKey,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -127,8 +149,27 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           color: Colors.deepPurple,
                           onPressed: () {
-                            if (_signformkey.currentState.validate())
+                            if (_signformkey.currentState
+                                .validate()) if (_email ==
+                                    _emailTextEditingController.text &&
+                                _password ==
+                                    _passwordTextEditingController.text) {
                               Navigator.pushReplacementNamed(context, homepage);
+                            } else {
+                              _scaffoldKey.currentState.showSnackBar(
+                                SnackBar(
+                                  content: ListTile(
+                                    leading:
+                                        Icon(Icons.error, color: Colors.red),
+                                    title: Text('incorrect email or password'),
+                                    trailing:
+                                        Icon(Icons.error, color: Colors.red),
+                                  ),
+                                  backgroundColor: Colors.purple,
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
+                            }
                           },
                         ),
                       ),

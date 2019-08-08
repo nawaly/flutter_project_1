@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pt_project_1/models/category.dart';
 import 'package:pt_project_1/views/components/cards/category_card.dart';
-
+// category tab
 class CategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

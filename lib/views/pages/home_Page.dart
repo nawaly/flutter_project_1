@@ -14,12 +14,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     List<Widget> _screens = <Widget>[
       TodayScreen(),
-      CategoryScreen(
-      ),
-      Container(
-        height: 400,
-        color: Colors.yellowAccent,
-      ),
+      CategoryScreen(),
+      // DiscoverScreen(),
       Container(
         height: 400,
         color: Colors.blueAccent,
