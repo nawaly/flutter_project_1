@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pt_project_1/models/album.dart';
-
+//last 4 images
 class SideDetailedCard extends StatelessWidget {
   final Album album;
 

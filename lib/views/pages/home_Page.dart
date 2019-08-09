@@ -8,11 +8,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //declarations and keys over here
   int _currentIndex = 0;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { //builderContext iterates index
+    //typecust is widget, takes anything in widget
     List<Widget> _screens = <Widget>[
+      //array of name private screen of type widget
+      //screen pages classes which to be called
       TodayScreen(),
       CategoryScreen(),
       // DiscoverScreen(),
@@ -26,14 +30,16 @@ class _HomePageState extends State<HomePage> {
       ),
     ];
     return Scaffold(
-      body: DefaultTabController(
-          child: _screens.elementAt(_currentIndex), length: 5),
+      body: DefaultTabController( //defaulttabcontroller is widget
+          child: _screens.elementAt(_currentIndex), length: 5), //elementAt takes current index
       bottomNavigationBar: BottomNavigationBar(
+        // bar of the bottom and the top one is UpBar
         unselectedItemColor: Colors.grey,
         selectedItemColor: Colors.red,
         currentIndex: _currentIndex,
-        onTap: _selectedIndex,
+        onTap: _selectedIndex, //ontap is method for button to be clickable
         items: <BottomNavigationBarItem>[
+          //item is an array of type bottomnavigationbar
           BottomNavigationBarItem(
             icon: Icon(
               Icons.insert_comment,
@@ -59,7 +65,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _selectedIndex(int index) {
-    setState(() {
+    setState(() { //setstate takes current index 
       _currentIndex = index;
     });
   }

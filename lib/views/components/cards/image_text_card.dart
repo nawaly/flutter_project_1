@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pt_project_1/models/album.dart';
 // import 'package:pt_project_1/models/album.dart';
-
+// first image in grid images
 class ImageTextCard extends StatelessWidget {
   //1
   //objects

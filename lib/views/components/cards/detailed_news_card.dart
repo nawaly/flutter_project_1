@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pt_project_1/models/album.dart';
-
+// 2 image
 class DetailedNewsCard extends StatelessWidget {
   final Album album;
   final double padding;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pt_project_1/models/album.dart';
-// first card, first picture 
+// first card, first image and third image 
 class AlbumCard extends StatelessWidget {
   final Album album;
   final double padding;

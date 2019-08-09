@@ -10,15 +10,15 @@ class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp( //material is android
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
+      theme: ThemeData( 
        
-        primarySwatch: Colors.purple,
+        primarySwatch: Colors.purple, //default color anything wanting color will give that if you dint assign
       ),
-      home:LoginPage(),
-      routes:{
+      home:LoginPage(), //start up page
+      routes:{ //navigations
         loginPage:(BuildContext context) => LoginPage(),
         signUp:(BuildContext context)=> SignUpPage(),
         loginScreen:(BuildContext context)=> LoginScreen(),

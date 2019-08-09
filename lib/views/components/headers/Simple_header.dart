@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+//declaring and initializing date and day 
 class SimpleHeader extends StatelessWidget {
   final String date;
   final String day;
