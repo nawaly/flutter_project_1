@@ -41,7 +41,7 @@ class TodayScreen extends StatelessWidget {
                   album: albums[index],
                   padding: 20,
                 );
-        }, childCount: albums.length),
+        }, childCount: 3),
       ),
       SliverList( //sliverist of second day and date
         delegate: SliverChildListDelegate([
@@ -64,7 +64,7 @@ class TodayScreen extends StatelessWidget {
               album: albums[index],
             ),
           );
-        }, childCount: albums.length),
+        }, childCount: 3),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, //number of images in grid
           crossAxisSpacing: 5, //space btn two images in grid up and down
@@ -95,7 +95,7 @@ class TodayScreen extends StatelessWidget {
           (BuildContext context, int index) {
             return SideDetailedCard(album: albums[index]);
           },
-          childCount: albums.length,
+          childCount: 4,
         ),
       ),
     ]);

@@ -3,26 +3,26 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pt_project_1/contants/constant.dart';
 
 class LoginScreen extends StatefulWidget {
+  //stateless converted to stateful
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  //focus node
+  // declaring FocusNodes that grabs input written by user and sends to database
   FocusNode _emailFocusNode = FocusNode();
   FocusNode _passwordFocusNode = FocusNode();
+
+  //declaring TextEditingComtroller that controls text field to be used somewhere else
+  TextEditingController _emailTextEditingController = TextEditingController();
+  TextEditingController _passwordTextEditingController =
+      TextEditingController();
 
   //keys
   final _signformkey = GlobalKey<FormState>();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  bool _isObscure = true;
-
-  // focus nodes grabs input written by user and sends to database
-  TextEditingController _emailTextEditingController = TextEditingController();
-  TextEditingController _passwordTextEditingController =
-      TextEditingController();
-//texteditingcomtroller controls text field to be used somewhere else
+  bool _isObscure = true; //boolean for eye to open or close
 
 //variables
 //temporary login credentials
@@ -43,22 +43,26 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          //top bar where back button is located
+          backgroundColor: Colors.transparent, //top bar color
           elevation: 0,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios, color: Colors.deepPurple),
+            icon: Icon(Icons.arrow_back_ios,
+                color: Colors.deepPurple), //back arrow at the top left
             onPressed: () {
               Navigator.pop(context);
             },
           ),
         ),
         body: SingleChildScrollView(
+          //to scroll
           child: Form(
+            //form to fill inputs
             key: _signformkey,
             child: Column(
               children: <Widget>[
                 SizedBox(
-                  height: 100,
+                  height: 100, //height of everything from top
                 ),
                 Center(
                   child: Column(
@@ -77,22 +81,28 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
-                      left: 40, top: 40, right: 40, bottom: 10),
+                      //padding for email and password input
+                      left: 40,
+                      top: 40,
+                      right: 40,
+                      bottom: 10),
                   child: TextFormField(
                     focusNode: _emailFocusNode,
                     controller: _emailTextEditingController,
-                    keyboardType: TextInputType.emailAddress,
+                    keyboardType: TextInputType
+                        .emailAddress, //keyboard to have .com and @
                     validator: (value) {
-                      if (value.isEmpty)
+                      if (value.isEmpty) //if email blank
                         return 'email required';
                       else
                         return null;
                     },
                     decoration: InputDecoration(
-                        hintText: 'Email address',
-                        labelText: 'Email',
+                        hintText: 'Email address', //displays on start writting
+                        labelText: 'Email', //seen on the input bar
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30))),
+                            borderRadius: BorderRadius.circular(30) //radius of the side curves
+                            )),
                   ),
                 ),
                 Padding(

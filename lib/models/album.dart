@@ -21,29 +21,57 @@ final bool isHot; //fire icon
 }
 List<Album> albums = <Album>[
 Album (
- author: 'Mozilla',
+ author: 'Naw',
  avatar: 'assets/icons/1.jpg', 
  comments: 10, 
  cover: 'assets/icons/2.jpg', 
  isHot: true, 
- subtitle: 'Soprano Announces His New',
- title: 'GAMING'),
+ subtitle: 'Monday',
+ title: 'One'),
 
 Album (
-  author: 'nasss',
+  author: 'Nas',
  avatar: 'assets/icons/2.jpg', 
  comments: 20, 
  cover: 'assets/icons/1.jpg', 
  isHot: false, 
- subtitle: 'tuesday',
+ subtitle: 'Tuesday',
  title: 'this two'),
 
  Album (
-  author: 'navvv',
+  author: 'Nav',
  avatar: 'assets/icons/1.jpg', 
  comments: 30, 
  cover: 'assets/icons/3.jpg', 
  isHot: false, 
- subtitle: 'wednesday',
+ subtitle: 'Wednesday',
  title: 'this three'),
+
+ Album (
+  author: 'Naj',
+ avatar: 'assets/icons/2.jpg', 
+ comments: 20, 
+ cover: 'assets/icons/1.jpg', 
+ isHot: false, 
+ subtitle: 'Thursday',
+ title: 'this Four'),
+
+Album (
+  author: 'Nar',
+ avatar: 'assets/icons/3.jpg', 
+ comments: 20, 
+ cover: 'assets/icons/1.jpg', 
+ isHot: false, 
+ subtitle: 'Friday',
+ title: 'five'),
+
+Album (
+  author: 'Nad',
+ avatar: 'assets/icons/2.jpg', 
+ comments: 20, 
+ cover: 'assets/icons/3.jpg', 
+ isHot: false, 
+ subtitle: 'Saturday',
+ title: 'this Six'),
+
 ];

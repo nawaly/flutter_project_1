@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pt_project_1/views/screens/category_screen.dart';
+import 'package:pt_project_1/views/screens/discover_screen.dart';
 import 'package:pt_project_1/views/screens/today_screens.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,11 +16,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) { //builderContext iterates index
     //typecust is widget, takes anything in widget
     List<Widget> _screens = <Widget>[
-      //array of name private screen of type widget
+      //private array name screen of type widget
       //screen pages classes which to be called
       TodayScreen(),
       CategoryScreen(),
-      // DiscoverScreen(),
+      DiscoverScreen(),
       Container(
         height: 400,
         color: Colors.blueAccent,
@@ -48,10 +49,10 @@ class _HomePageState extends State<HomePage> {
             title: Text('Today'),
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.category, color: Colors.grey[600]),
+              icon: Icon(Icons.content_copy, color: Colors.grey[600]),
               title: Text('Categories')),
           BottomNavigationBarItem(
-              icon: Icon(Icons.accessibility_new, color: Colors.grey[600]),
+              icon: Icon(Icons.star, color: Colors.grey[600]),
               title: Text('Discover')),
           BottomNavigationBarItem(
               icon: Icon(Icons.search, color: Colors.grey[600]),

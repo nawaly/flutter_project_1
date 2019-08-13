@@ -31,7 +31,7 @@ class CategoryCard extends StatelessWidget {
                 alignment: Alignment.bottomLeft,
                 child: Text(category.name,
                     style: TextStyle(
-                      color: Colors.red,
+                      color: Colors.white, // color of text in category screen
                       fontSize: 30,
                     ))),
           )
