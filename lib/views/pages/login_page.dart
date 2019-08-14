@@ -3,7 +3,7 @@ import 'package:pt_project_1/contants/constant.dart';
 
 class LoginPage extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { //only methods have return
     return Scaffold( //to be seen
       body: SingleChildScrollView( //to scroll up and down
         child: Column( //column bcs many stuffs going downwards and takes children only

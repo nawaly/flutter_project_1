@@ -42,7 +42,8 @@ class CategoryScreen extends StatelessWidget {
               crossAxisCount: 2,
               mainAxisSpacing: 5,
               crossAxisSpacing: 5,
-              childAspectRatio: 1.4),
+              childAspectRatio: 1.4), //ratio of cross axis to main axis
+              
         ),
         SliverList(
           delegate: SliverChildListDelegate([

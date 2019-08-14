@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-
+//model is blue print of album
 class Album{
 final String cover; //cover picture
 final String title; //heading

@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
         color: Colors.greenAccent,
       ),
     ];
-    return Scaffold(
+    return Scaffold( //Scaffold has app bar,body & bottomNavigationBar
       body: DefaultTabController( //defaulttabcontroller is widget
           child: _screens.elementAt(_currentIndex), length: 5), //elementAt takes current index
       bottomNavigationBar: BottomNavigationBar(

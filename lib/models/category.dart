@@ -5,8 +5,7 @@ class Category {
   final String name;
   final String icon;
   final Color color;
-  //final textColor;
-  //for keeping different colors in category card boxes
+  //final textColor; =for keeping different colors in category card boxes
 
   Category({@required this.name, @required this.icon, @required this.color});
 }
