@@ -25,22 +25,23 @@ mixin Utility_Model on Team_AppConnectedModel {
 
 mixin User_Model on Team_AppConnectedModel {
   //all below should be inside this mixin
-//function
+//function,, userSubject is type PublishSubject
   PublishSubject<bool> _userSubject = PublishSubject();
   final String _email = "nawal@gmail.com";
   final String _password = "12345";
 
   User _user;
-  void login({
+  Future<bool> login({
     //login method
     //async bcz used in fetching data from db
     @required String email,
     @required String password,
   }) async {
     //asynchronize
+    bool _isLoggedIn = false;
     final SharedPreferences pref = //SharedPreference stores data locally
         await SharedPreferences.getInstance(); //await is used with async
-    if (email == _email && password == _password) { 
+    if (email == _email && password == _password) {
       _user = User(
           email: _email,
           id: 1,
@@ -48,14 +49,17 @@ mixin User_Model on Team_AppConnectedModel {
           token: 'howyhudoin',
           name: 'nawal');
 
-      pref.setInt('id', _user.id); //sets or adds preference id=key & _user.id=value
+      pref.setInt(
+          'id', _user.id); //sets or adds preference id=key & _user.id=value
       pref.setString('email', _user.email);
       pref.setString('name', _user.name);
       pref.setString('profile', _user.profile);
       pref.setString('token', _user.token);
       _userSubject.add(true); //true= user is logged in,calls usersubject
-      notifyListeners(); 
+      _isLoggedIn = true;
+      notifyListeners();
     }
+    return _isLoggedIn;
   }
 
   void logout() async {
@@ -63,6 +67,24 @@ mixin User_Model on Team_AppConnectedModel {
     _userSubject.add(false);
     pref.clear();
     notifyListeners();
+  }
+
+  Future<void> autoAuthenticate() async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    String _token = pref.getString('token');
+    if (_token.isNotEmpty) {
+      _user = User(
+          email: pref.getString('email'),
+          id: pref.getInt('id'),
+          name: pref.getString('name'),
+          profile: pref.getString('profile'),
+          token: pref.getString('token'));
+      _userSubject.add(true);
+      notifyListeners();
+    } else {
+      _userSubject.add(false);
+      notifyListeners();
+    }
   }
 
 //getters

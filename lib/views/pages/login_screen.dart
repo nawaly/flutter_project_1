@@ -43,7 +43,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant( //scoped model has 3 classes; ScopedModel,ScopedModelDescendant,Model
+    return ScopedModelDescendant(
+      //scoped model has 3 classes; ScopedModel,ScopedModelDescendant,Model
       builder: (BuildContext context, Widget child, MainModel model) {
         return Scaffold(
             key: _scaffoldKey,
@@ -175,30 +176,45 @@ class _LoginScreenState extends State<LoginScreen> {
                               color: Colors.deepPurple,
                               onPressed: () {
                                 if (_signformkey.currentState.validate()) {
+                                  model
+                                      .login(
+                                          email:
+                                              _emailTextEditingController.text,
+                                          password:
+                                              _passwordTextEditingController
+                                                  .text) //call back
+                                      .then((auth) {
+                                    print('auth');
+                                    if (auth) {
+                                      Navigator.pushReplacementNamed(
+                                          context, '/');
+                                    } else {
+                                      _scaffoldKey.currentState
+                                          .showSnackBar(SnackBar(
+                                              //pop up of incorrect email or password
+                                              content: ListTile(
+                                                //more than one lists
+                                                leading: Icon(Icons.error,
+                                                    color: Colors.red),
+                                                title: Text(
+                                                    'incorrect email or password'),
+                                                trailing: Icon(Icons.error,
+                                                    color: Colors.red),
+                                              ),
+                                              backgroundColor: Colors.purple,
+                                              duration: Duration(seconds: 2)));
+                                    }
+                                  });
                                   model.toggoSpinner();
                                   int time = 0;
                                   var t = Timer(Duration(seconds: 3), () {
-                                    model.toggoSpinner(); //to access loading symbol
+                                    model
+                                        .toggoSpinner(); //to access loading symbol
                                     time = 3;
                                   });
                                   if (time == 3) {
                                     t.cancel();
                                   }
-
-                                  _scaffoldKey.currentState.showSnackBar(
-                                    SnackBar( //pop up of incorrect email or password
-                                      content: ListTile( //more than one lists
-                                        leading: Icon(Icons.error,
-                                            color: Colors.red),
-                                        title:
-                                            Text('incorrect email or password'),
-                                        trailing: Icon(Icons.error,
-                                            color: Colors.red),
-                                      ),
-                                      backgroundColor: Colors.purple,
-                                      duration: Duration(seconds: 2),
-                                    ),
-                                  );
                                 }
                               },
                             ),

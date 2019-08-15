@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pt_project_1/views/screens/category_screen.dart';
 import 'package:pt_project_1/views/screens/discover_screen.dart';
+import 'package:pt_project_1/views/screens/profile_screen.dart';
+import 'package:pt_project_1/views/screens/search_screen.dart';
 import 'package:pt_project_1/views/screens/today_screens.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,6 +23,8 @@ class _HomePageState extends State<HomePage> {
       TodayScreen(),
       CategoryScreen(),
       DiscoverScreen(),
+      SearchScreen(),
+      ProfileScreen(),
       Container(
         height: 400,
         color: Colors.blueAccent,

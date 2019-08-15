@@ -8,9 +8,30 @@ import 'contants/constant.dart';
 import 'views/pages/sign_up.dart';
 
 // This widget is the root of your application.
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   //object of _model that reference class MainModel
+  @override
+  _AppState createState() => _AppState();
+}
+
+class _AppState extends State<App> {
   final MainModel _model = MainModel();
+  bool _isAuthenticated= false;
+  @override 
+  //inistate is override,it is first method to be called, it excutes before build
+  //userSubject is getter from Team_App_connected_models.dart
+  void initState() {
+    ///auth gets values from publishSubject
+    _model.autoAuthenticate();
+    _model.userSubject.listen((auth){ 
+      setState(() { ///setState function from stateful widget
+         _isAuthenticated=auth;
+      });
+      // _isAuthenticated=auth;
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     //<MainModel> typecasting ScopedModel to type MainModel
@@ -23,9 +44,9 @@ class App extends StatelessWidget {
         primarySwatch: Colors
             .purple, //default color anything wanting color will give that if you dint assign
       ),
-      home: HomePage(), //start up page
+      // home: _isAuthenticated? HomePage():LoginPage(), //start up page
       routes: {
-        //navigations
+        '/':(BuildContext context) => _isAuthenticated? HomePage():LoginPage(),
         loginPage: (BuildContext context) => LoginPage(),
         signUp: (BuildContext context) => SignUpPage(),
         loginScreen: (BuildContext context) => LoginScreen(),
