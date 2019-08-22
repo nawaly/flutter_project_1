@@ -54,6 +54,7 @@ class CategoryScreen extends StatelessWidget {
                   padding: 20,
                   showButton: true,
                   showTitle: true,
+                  showStar: false,
                 )
               ]),
             ),
@@ -82,6 +83,7 @@ class CategoryScreen extends StatelessWidget {
                   padding: 20,
                   showButton: true,
                   showTitle: true,
+                  showStar: false,
                 )
               ]),
             ),

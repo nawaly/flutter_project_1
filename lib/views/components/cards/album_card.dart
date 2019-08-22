@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'package:pt_project_1/models/album.dart';
 //first image and third image with text,avatar,comment, on top in today screen
 class AlbumCard extends StatelessWidget {

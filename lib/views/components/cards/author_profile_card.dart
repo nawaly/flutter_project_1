@@ -17,7 +17,7 @@ class AuthorProfileCard extends StatelessWidget {
         title: Column( //name=author & down title
           crossAxisAlignment: CrossAxisAlignment.start, //start right after avatar
           children: <Widget>[
-            Text('naw'), //text from file album.dart in model
+            Text(album.subtitle), //text from file album.dart in model
             Text(album.title),
           ],
         ),

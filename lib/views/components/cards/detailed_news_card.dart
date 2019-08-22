@@ -38,7 +38,7 @@ class DetailedNewsCard extends StatelessWidget {
                 children: <Widget>[
                   Text(album.title, style: TextStyle(color: Colors.grey,fontSize: 20),), //color stays before fontsize
                   Text(album.subtitle, style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
-                  Text('nas', style: TextStyle(color: Colors.grey,fontSize: 20),)
+                  Text(album.title, style: TextStyle(color: Colors.grey,fontSize: 20),)
                 ]
               ),
               height: MediaQuery.of(context).size.height / 6, //declaring and initializing/using variable height

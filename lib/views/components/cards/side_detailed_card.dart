@@ -76,7 +76,7 @@ class SideDetailedCard extends StatelessWidget {
                           //   ),),
                           
                           Expanded(
-                            child: Text('naj',
+                            child: Text(album.title,
                                 maxLines: 1,
                                 style: TextStyle(
                                   color: Colors.grey[500],

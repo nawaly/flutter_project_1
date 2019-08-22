@@ -34,6 +34,7 @@ final String details;
         isHot = map['isHot'];
 }
 
+//was for testing only,not required anymore
 // List<Album> albums = <Album>[
 // Album (
 //  author: 'Naw',
@@ -54,15 +55,6 @@ final String details;
 //  title: 'this two'),
 
 //  Album (
-//   author: 'Nav',
-//  avatar: 'assets/icons/1.jpg', 
-//  comments: 30, 
-//  cover: 'assets/icons/3.jpg', 
-//  isHot: false, 
-//  subtitle: 'Wednesday',
-//  title: 'this three'),
-
-//  Album (
 //   author: 'Naj',
 //  avatar: 'assets/icons/2.jpg', 
 //  comments: 20, 
@@ -70,23 +62,4 @@ final String details;
 //  isHot: false, 
 //  subtitle: 'Thursday',
 //  title: 'this Four'),
-
-// Album (
-//   author: 'Nar',
-//  avatar: 'assets/icons/3.jpg', 
-//  comments: 20, 
-//  cover: 'assets/icons/1.jpg', 
-//  isHot: false, 
-//  subtitle: 'Friday',
-//  title: 'five'),
-
-// Album (
-//   author: 'Nad',
-//  avatar: 'assets/icons/2.jpg', 
-//  comments: 20, 
-//  cover: 'assets/icons/3.jpg', 
-//  isHot: false, 
-//  subtitle: 'Saturday',
-//  title: 'this Six'),
-
 // ];
