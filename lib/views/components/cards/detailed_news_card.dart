@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pt_project_1/models/album.dart';
-// 2 image
+//second image divided with image & text at the bottom in today screen
 class DetailedNewsCard extends StatelessWidget {
   final Album album;
   final double padding;
@@ -10,7 +10,7 @@ class DetailedNewsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(padding),
+      padding: EdgeInsets.all(padding), //(padding)=value of padding will be passed here
       height: MediaQuery.of(context).size.height / 2,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
@@ -36,12 +36,12 @@ class DetailedNewsCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(album.title, style: TextStyle(fontSize: 30),),
-                  Text(album.subtitle, style: TextStyle(fontSize: 30),),
-                  Text(album.author, style: TextStyle(fontSize: 10),)
+                  Text(album.title, style: TextStyle(color: Colors.grey,fontSize: 20),), //color stays before fontsize
+                  Text(album.subtitle, style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+                  Text('nas', style: TextStyle(color: Colors.grey,fontSize: 20),)
                 ]
               ),
-              height: MediaQuery.of(context).size.height / 6,
+              height: MediaQuery.of(context).size.height / 6, //declaring and initializing/using variable height
               width: MediaQuery.of(context).size.height ,
              decoration: BoxDecoration(
                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15),

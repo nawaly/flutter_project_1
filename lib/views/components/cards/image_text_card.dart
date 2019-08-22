@@ -1,40 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:pt_project_1/models/album.dart';
-// import 'package:pt_project_1/models/album.dart';
-// first image in grid images
+
+// first image in grid images, text on top of image in today screen
 class ImageTextCard extends StatelessWidget {
-  //1
   //objects
-  // final Album album;
+  final Album album;
+  final double padding;
 
-  //const ImageTextCard({Key key, @required this.album}) : super(key: key); 1
-final Album album;
-
-  const ImageTextCard({Key key, @required this.album, }) : super(key: key);
+  const ImageTextCard({
+    Key key,
+    @required this.album, this.padding,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    //here
-    //declared variables
-    double height = MediaQuery.of(context).size.height;
-    // double width = MediaQuery.of(context).size.width;
+    //declaring variable height
+    // double height = MediaQuery.of(context).size.height;
 
     return Container(
-      //declared variables used
-      height: height / 3,
-    
-
-      
-//color should be in decoration
-//containers decorations
+      //using declared variable:
+      // height: height / 3,
+      height: MediaQuery.of(context).size.height/2, //declaring and using at the same time
+      padding: EdgeInsets.all(padding),
+      //color should be in decoration
+      //containers decorations
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        
       ),
       child: Stack(
         children: <Widget>[
           Container(
-            height: height / 3,
-           
+            height: MediaQuery.of(context).size.height /2,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
@@ -43,18 +38,17 @@ final Album album;
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
+            child: Container( //text container & decorations
               padding: EdgeInsets.all(8),
-              height: height/9,
-              
+              height: MediaQuery.of(context).size.height / 9,
               decoration: BoxDecoration(
-                color: Colors.black26,
+                  color: Colors.black26,
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(15),
                       bottomRight: Radius.circular(15))),
               child: Text(
                 'Soprano Announces His New Album',
-                // album.title, keeping this will display album.dart titles 
+                // album.title, keeping this will display album.dart titles
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -66,38 +60,6 @@ final Album album;
           ),
         ],
       ),
-
-      //2
-      // decoration: BoxDecoration(
-      //   borderRadius: BorderRadius.circular(10),
-      // ),
-      // height: MediaQuery.of(context).size.height / 3,
-      // margin: EdgeInsets.all(10),
-      // child: Stack(
-      //   children: <Widget>[
-      //     Container(
-      //       width: MediaQuery.of(context).size.width ,
-      //       decoration: BoxDecoration(
-      //         image: DecorationImage(
-      //             image: AssetImage(album.cover), fit: BoxFit.cover),
-      //         borderRadius: BorderRadius.circular(10),
-      //       ),
-      //     ),
-      //     Align(
-      //       alignment: Alignment.bottomLeft,
-      //         child: Padding(
-      //           padding: const EdgeInsets.only(left: 10, bottom: 20),
-      //           child: Container(
-      //             width: MediaQuery.of(context).size.width ,
-      //             child: Text(album.author,maxLines: 3,
-      //                 style: TextStyle(
-      //                     fontSize: 20,
-      //                     fontWeight: FontWeight.bold,
-      //                     color: Colors.white)),
-      //           ),
-      //         ))
-      //   ],
-      // ), 2
     );
   }
 }

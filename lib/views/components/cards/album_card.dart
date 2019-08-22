@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:pt_project_1/models/album.dart';
-// first card, first image and third image 
+//first image and third image with text,avatar,comment, on top in today screen
 class AlbumCard extends StatelessWidget {
   final Album album;
   final double padding;
@@ -13,31 +14,31 @@ class AlbumCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(padding),
-      height: 400,
+      height: 450,
       child: Stack(
         children: <Widget>[
           Container(
             height: 400,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(20),
                 image: DecorationImage(
                     image: AssetImage(album.cover), fit: BoxFit.cover)),
           ),
           album.isHot
               ? Padding(
-                  padding: EdgeInsets.only(right: 20, top: 5),
+                  padding: EdgeInsets.only(right: 20, top: 10),
                   child: Align(
                     alignment: Alignment.topRight,
                     child: RaisedButton.icon(
                       label: Text(
                         'HOT',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
                       ),
-                      color: Colors.pinkAccent,
+                      color: Color(0xffD4AF37), //color: Color(0xff..)0xff must be there, .. color code
                       shape: new RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(19)),
                       onPressed: () {},
-                      icon: Icon(FontAwesomeIcons.fire, color: Colors.white),
+                      icon: Icon(FontAwesomeIcons.fire, color: Colors.red),
                     ),
                   ),
                 )
@@ -47,23 +48,23 @@ class AlbumCard extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 10, right: 10),
               child: Container(
-                height: 110,
+                height: 160,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start, //text to start leftmost
                   children: <Widget>[
                     Text(
                       album.title,
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 20),
+                          fontSize: 25),
                     ),
                     Text(
                       album.subtitle,
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 20),
+                          fontSize: 24),
                     ),
                     Row(
                       children: <Widget>[
@@ -72,18 +73,18 @@ class AlbumCard extends StatelessWidget {
                           width: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            border: Border.all(color: Colors.white),
+                            border: Border.all(color: Colors.transparent),
                             image: DecorationImage(
-                                image: AssetImage(album.avatar),
+                                image: AssetImage(album.cover),
                                 fit: BoxFit.cover),
                           ),
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 5),
+                            padding: const EdgeInsets.only(left: 10),
                             child: Text(
                               album.title,
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.white,fontSize: 17),
                             ),
                           ),
                         ),
@@ -99,7 +100,7 @@ class AlbumCard extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(left: 5),
                           child: Text(
-                            album.toString(),
+                            album.details.toString(), //converting int comments to string bcz of text
                             style: TextStyle(color: Colors.white),
                           ),
                         )

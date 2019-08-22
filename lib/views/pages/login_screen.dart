@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pt_project_1/data/scoped_model/main.dart';
@@ -22,7 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
       TextEditingController();
 
   //keys
-  final _signformkey = GlobalKey<FormState>(); //to have access in form
+  final _signformkey = GlobalKey<FormState>(); //to have all access in form
   final _scaffoldKey = GlobalKey<ScaffoldState>(); //to have access in scaffold
 
   bool _isObscure = true; //boolean for eye to open or close
@@ -33,7 +32,6 @@ class _LoginScreenState extends State<LoginScreen> {
   // final String _password = "12345";
 
   //method authonticating email
-
   //bool _checkpassword() {
   //if (_password.compareTo(_passwordTextEditingController.text) == 0) {
   // return true;
@@ -44,15 +42,15 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant(
-      //scoped model has 3 classes; ScopedModel,ScopedModelDescendant,Model
+      //scoped model has 3 classes; ScopedModel,ScopedModelDescendant & Model
       builder: (BuildContext context, Widget child, MainModel model) {
         return Scaffold(
             key: _scaffoldKey,
             appBar: AppBar(
               //top bar where back button is located
               backgroundColor: Colors.transparent, //top bar color
-              elevation: 0,
-              leading: IconButton(
+              elevation: 0, //size of shadow
+              leading: IconButton( //seen first
                 icon: Icon(Icons.arrow_back_ios,
                     color: Colors.deepPurple), //back arrow at the top left
                 onPressed: () {
@@ -126,9 +124,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           else
                             return null;
                         },
-                        obscureText: _isObscure,
+                        obscureText: _isObscure, //text to be seen or not
                         decoration: InputDecoration(
-                            suffixIcon: IconButton(
+                            suffixIcon: IconButton( //suffix=icon to be at the end
                                 onPressed: () {
                                   setState(() {
                                     _isObscure = !_isObscure;

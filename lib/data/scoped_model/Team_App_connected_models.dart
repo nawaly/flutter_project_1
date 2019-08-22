@@ -1,24 +1,43 @@
+import 'dart:convert';
 import 'package:flutter/foundation.dart';
+import 'package:pt_project_1/api/api.dart';
+import 'package:pt_project_1/models/album.dart';
 import 'package:pt_project_1/models/user.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:rxdart/subjects.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 
-//anything to be seen in the whole app, fetching album, editing album
-//first class(mixin) extends on model others(mixins) implements on model
-//mixin=class
-mixin Team_AppConnectedModel on Model {}
-mixin Album_Model on Team_AppConnectedModel {}
+//anything to be seen in the whole app, fetching and editing album
+//first class(mixin) extends on model & other mixins implements on model
+//mixin=class that contains methods for use by other classes
+mixin Team_AppConnectedModel on Model {
+  //creating private list of type album called availableAlbums
+  List<Album> _availableAlbums;
+}
+mixin Album_Model on Team_AppConnectedModel { 
+  List<Album> get availableAlbum=>_availableAlbums; //getter
+  //functions/methods
+  Future<void> getAlbums() async {
+    try{
+      http.Response response= await http.get(api+'albums'); //response from http ipo in json
+   Map<String,dynamic> data = json.decode(response.body); 
+   print('data');
+    } 
+    catch(error){}
+   
+  } 
+}
 mixin Category_Model on Team_AppConnectedModel {}
-mixin Utility_Model on Team_AppConnectedModel {
-  bool _showSpinner = false;
+mixin Utility_Model on Team_AppConnectedModel { //utility model defines extra stuff details
+  bool _showSpinner = false; //loading symbol
 
   /// creating getters functions(declaring variables starts with small letters)
   bool get showSpinner => _showSpinner;
 
   ///creating setters
   toggoSpinner() {
-    _showSpinner = !_showSpinner;
+    _showSpinner = !_showSpinner; //variable declared=value
     notifyListeners(); //rebuild built methods,save or give changes made
   }
 }
@@ -31,7 +50,7 @@ mixin User_Model on Team_AppConnectedModel {
   final String _password = "12345";
 
   User _user;
-  Future<bool> login({
+  Future<bool> login({ 
     //login method
     //async bcz used in fetching data from db
     @required String email,
@@ -49,8 +68,8 @@ mixin User_Model on Team_AppConnectedModel {
           token: 'howyhudoin',
           name: 'nawal');
 
-      pref.setInt(
-          'id', _user.id); //sets or adds preference id=key & _user.id=value
+      //sets or adds preference (id=key , _user.id=value);
+      pref.setInt('id', _user.id); 
       pref.setString('email', _user.email);
       pref.setString('name', _user.name);
       pref.setString('profile', _user.profile);
@@ -72,7 +91,7 @@ mixin User_Model on Team_AppConnectedModel {
   Future<void> autoAuthenticate() async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
     String _token = pref.getString('token');
-    if (_token.isNotEmpty) {
+    if (_token.isNotEmpty) { //random statement that plays as active/logged in time
       _user = User(
           email: pref.getString('email'),
           id: pref.getInt('id'),

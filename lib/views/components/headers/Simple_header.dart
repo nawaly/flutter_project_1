@@ -21,10 +21,11 @@ class SimpleHeader extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-          Text(date),
+          Text(date,
+          style: TextStyle(fontSize: 13,color: Colors.grey),),
           Text(
             day,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            style: TextStyle(fontSize: 33, fontWeight: FontWeight.w700),
           ),
           SizedBox(
             height: 30,

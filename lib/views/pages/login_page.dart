@@ -39,7 +39,7 @@ class LoginPage extends StatelessWidget {
         child: Row( //row bcs there are stuffs arranged side ways
           mainAxisAlignment: MainAxisAlignment.spaceBetween, //to leave middle space open
           children: <Widget>[
-            FlatButton(
+            FlatButton( //doesnt have background shape
               child: Text(
                 'LOG IN',
                 

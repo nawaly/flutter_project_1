@@ -11,6 +11,7 @@ class SearchScreen extends StatelessWidget {
             SimpleHeaders(padding: 10, subtitle: 'Search',)
           ]),
         )
+        
       ],
     );
   }

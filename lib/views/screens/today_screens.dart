@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:pt_project_1/models/album.dart';
+import 'package:pt_project_1/data/scoped_model/main.dart';
 import 'package:pt_project_1/views/components/cards/album_card.dart';
-// import 'package:pt_project_1/views/components/cards/album_card.dart';
 import 'package:pt_project_1/views/components/cards/detailed_news_card.dart';
 import 'package:pt_project_1/views/components/cards/image_text_card.dart';
 import 'package:pt_project_1/views/components/cards/side_detailed_card.dart';
 import 'package:pt_project_1/views/components/headers/Simple_header.dart';
+import 'package:scoped_model/scoped_model.dart';
 
-// import 'package:pt_project_1/views/components/header.dart';
-//today tab
 class TodayScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // return ListView.builder(
-    //     itemCount: albums.length,
-    //     itemBuilder: (BuildContext context, int index) {
-    //       return ImageTextCard(
-    //         album: albums[index],
-    //       );
-    //     });
 
-    return CustomScrollView(slivers: <Widget>[
-      SliverList( //first sliverlist of day and date
-        delegate: SliverChildListDelegate([ //SliverChildListDelegate is child of delegate
+    return ScopedModelDescendant(builder: (
+      BuildContext context, 
+      Widget child, MainModel model) {
+        CustomScrollView(slivers: <Widget>[
+      SliverList(
+        //sliverlist of first day and date
+        delegate: SliverChildListDelegate([
+          //SliverChildListDelegate is child of delegate
           SimpleHeader(
             date: '2019-08-08 04:33',
             day: 'Today',
@@ -30,20 +26,22 @@ class TodayScreen extends StatelessWidget {
           )
         ]),
       ),
-      SliverList( // sliverist of first and third image from AlbumCard and second image from DetailedNewsCard
+      SliverList(
+        // sliverist of images from AlbumCard and DetailedNewsCard
         delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
           return index.isEven
               ? AlbumCard(
-                  album: albums[index],
+                  album: model.availableAlbum[index],
                   padding: 20,
                 )
               : DetailedNewsCard(
-                  album: albums[index],
+                  album: model.availableAlbum[index],
                   padding: 20,
                 );
         }, childCount: 3),
       ),
-      SliverList( //sliverist of second day and date
+      SliverList(
+        //sliverist of second day and date
         delegate: SliverChildListDelegate([
           SimpleHeader(
             date: '18 MARCH',
@@ -52,26 +50,28 @@ class TodayScreen extends StatelessWidget {
           )
         ]),
       ),
-      SliverGrid( //silvergrid of grid images
+      SliverGrid(
+        //silvergrid of grid images
         delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
           return Padding(
             //padding not returned, it is wrapped ndo mana ipo juu
             padding: EdgeInsets.only(
                 //space of left and right btn container which are grid
-                left: index.isEven ? 20 : 0,
-                right: index.isOdd ? 20 : 0),
+                left: index.isEven ? 20 : 0, //if even left=20
+                right: index.isOdd ? 20 : 0), //if odd right=20
             child: ImageTextCard(
-              album: albums[index],
+              album: model.availableAlbum[index],
             ),
           );
-        }, childCount: 3),
+        }, childCount: 3),//number of images in grid
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, //number of images in grid
+          crossAxisCount: 2, 
           crossAxisSpacing: 5, //space btn two images in grid up and down
           mainAxisSpacing: 5, //space btn two images in grid left and right
         ),
       ),
-      SliverList( //sliverist of third day and date
+      SliverList(
+        //sliverist of third day and date
         delegate: SliverChildListDelegate([
           SimpleHeader(
             date: '17 MARCH',
@@ -80,24 +80,27 @@ class TodayScreen extends StatelessWidget {
           )
         ]),
       ),
-      SliverList( //sliverlist of single image after grid of ImageTextCard
+      SliverList(
+        //sliverlist of single image after grid of ImageTextCard
         delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
           return Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: ImageTextCard(
-              album: albums[index],
+              album: model.availableAlbum[index],
             ),
           );
         }, childCount: 1),
       ),
-      SliverList( //sliverlist of last card, SideDetailedCard
+      SliverList(
+        //sliverlist of last card, SideDetailedCard
         delegate: SliverChildBuilderDelegate(
           (BuildContext context, int index) {
-            return SideDetailedCard(album: albums[index]);
+            return SideDetailedCard(album: model.availableAlbum[index]);
           },
           childCount: 4,
         ),
       ),
     ]);
+      },);
   }
 }

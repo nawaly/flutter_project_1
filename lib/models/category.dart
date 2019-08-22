@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
+//category album declares and initializes grid's details
 class Category {
   final String name;
   final String icon;
