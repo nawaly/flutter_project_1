@@ -14,17 +14,26 @@ import 'package:http/http.dart' as http;
 mixin Team_AppConnectedModel on Model {
   //creating private list of type album called availableAlbums
   List<Album> _availableAlbums;
-}
+ }
 mixin Album_Model on Team_AppConnectedModel { 
-  List<Album> get availableAlbum=>_availableAlbums; //getter
+  // List<Album> get availableAlbum=>_availableAlbums; //getter
+
+  List<Album> getAvailableAlbums(){
+   if(_availableAlbums==null){
+    return <Album> [];
+  }
+  return List<Album>.from(_availableAlbums);
+  }
   //functions/methods
   Future<void> getAlbums() async {
     try{
       http.Response response= await http.get(api+'albums'); //response from http ipo in json
    Map<String,dynamic> data = json.decode(response.body); 
-   print('data');
+   print(data);
     } 
-    catch(error){}
+    catch(error){
+      print(error);
+    }
    
   } 
 }

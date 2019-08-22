@@ -12,7 +12,7 @@ class CategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScopedModelDescendant(
       builder: (BuildContext context, Widget child, MainModel model) {
-        CustomScrollView(
+        return CustomScrollView(
           slivers: <Widget>[
             SliverList(
               delegate: SliverChildListDelegate([
@@ -39,7 +39,7 @@ class CategoryScreen extends StatelessWidget {
                     category: categories[index],
                   ),
                 );
-              }, childCount: categories.length),
+              }, childCount: model.getAvailableAlbums().length),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: 5,
@@ -65,10 +65,10 @@ class CategoryScreen extends StatelessWidget {
                   padding: EdgeInsets.only(
                       left: index.isEven ? 20 : 0, right: index.isOdd ? 20 : 0),
                   child: ImageTextCard(
-                    album: model.availableAlbum[index],
+                    album: model.getAvailableAlbums()[index],
                   ),
                 );
-              }, childCount: 6),
+              }, childCount: model.getAvailableAlbums().length),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 5,
@@ -94,10 +94,10 @@ class CategoryScreen extends StatelessWidget {
                   padding: EdgeInsets.only(
                       left: index.isEven ? 20 : 0, right: index.isOdd ? 20 : 0),
                   child: ImageTextCard(
-                    album: model.availableAlbum[index],
+                    album: model.getAvailableAlbums()[index],
                   ),
                 );
-              }, childCount: 6),
+              }, childCount: model.getAvailableAlbums().length),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 5,

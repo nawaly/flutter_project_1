@@ -16,7 +16,7 @@ class ProfileScreen extends StatelessWidget {
                   style: TextStyle(color: Colors.red),
                 ),
                 onPressed: () {
-                  model.logout();
+                  model.getAlbums();
                 },
               ),
             ));

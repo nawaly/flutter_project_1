@@ -11,7 +11,7 @@ class DiscoverScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant(builder: (BuildContext context, Widget child, MainModel model) {
-      CustomScrollView(
+      return CustomScrollView(
       slivers: <Widget>[
         SliverList(
           delegate: SliverChildListDelegate([
@@ -29,13 +29,13 @@ class DiscoverScreen extends StatelessWidget {
             child: Container(
           height: MediaQuery.of(context).size.height / 2,
           child: ListView.builder(
-            itemCount: 3,
+            itemCount: model.getAvailableAlbums().length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index) {
               return Container(
                 width: MediaQuery.of(context).size.width * 0.9,
                 child: ImageTextCard(
-                  album: model.availableAlbum[index],
+                  album: model.getAvailableAlbums()[index],
                   padding: 10, //declared and defined in ImageTextCard
                 
                 ),
@@ -68,10 +68,10 @@ class DiscoverScreen extends StatelessWidget {
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
               return AuthorProfileCard(
-                album: model.availableAlbum[index],
+                album: model.getAvailableAlbums()[index],
               );
             },
-            childCount: 3,
+            childCount: model.getAvailableAlbums().length,
           ),
         ),
         SliverList(
@@ -99,13 +99,13 @@ class DiscoverScreen extends StatelessWidget {
             child: Container(
           height: MediaQuery.of(context).size.height / 2,
           child: ListView.builder(
-            itemCount: 3,
+            itemCount: model.getAvailableAlbums().length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index) {
               return Container(
                 width: MediaQuery.of(context).size.width * 0.9,
                 child: DetailedNewsCard(
-                  album: model.availableAlbum[index], 
+                  album: model.getAvailableAlbums()[index], 
                   padding: 10, //bigness of the image from image
                 
                 ),
@@ -138,9 +138,9 @@ class DiscoverScreen extends StatelessWidget {
            SliverList( //sliverlist of last card, SideDetailedCard
         delegate: SliverChildBuilderDelegate(
           (BuildContext context, int index) {
-            return SideDetailedCard(album: model.availableAlbum[index]);
+            return SideDetailedCard(album: model.getAvailableAlbums()[index]);
           },
-          childCount: 4,
+          childCount: model.getAvailableAlbums().length,
         ),
       ),
        SliverList(
@@ -168,13 +168,13 @@ class DiscoverScreen extends StatelessWidget {
             child: Container(
           height: MediaQuery.of(context).size.height / 2,
           child: ListView.builder(
-            itemCount: 3,
+            itemCount: model.getAvailableAlbums().length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index) {
               return Container(
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: ImageTextCard(
-                  album: model.availableAlbum[index],
+                  album: model.getAvailableAlbums()[index],
             
                 ),
               );
@@ -195,9 +195,9 @@ class DiscoverScreen extends StatelessWidget {
         SliverList( //sliverlist of last card, SideDetailedCard
         delegate: SliverChildBuilderDelegate(
           (BuildContext context, int index) {
-            return SideDetailedCard(album: model.availableAlbum[index]);
+            return SideDetailedCard(album: model.getAvailableAlbums()[index]);
           },
-          childCount: 4,
+          childCount: model.getAvailableAlbums().length,
         ),
       ),
       ],

@@ -13,7 +13,6 @@ class SimpleHeaders extends StatelessWidget {
       this.title,
       @required this.subtitle,
       @required this.padding,
-      TextStyle style,
       this.showButton,
       this.showTitle, 
       this.showStar})
