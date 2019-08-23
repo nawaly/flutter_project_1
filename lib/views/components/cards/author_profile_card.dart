@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pt_project_1/data/scoped_model/main.dart';
 import 'package:pt_project_1/models/album.dart';
 //popular author card with avatar,text & star in discover screen
 class AuthorProfileCard extends StatelessWidget {
   final Album album;
-
-  const AuthorProfileCard({Key key, @required this.album}) : super(key: key);
+final MainModel model;
+  const AuthorProfileCard({Key key, @required this.album, @required this.model}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(

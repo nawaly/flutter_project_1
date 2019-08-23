@@ -26,16 +26,25 @@ mixin Album_Model on Team_AppConnectedModel {
   }
   //functions/methods
   Future<void> getAlbums() async {
+    List<Album> _fetchedAlbums=[];
     try{
       http.Response response= await http.get(api+'albums'); //response from http ipo in json
    Map<String,dynamic> data = json.decode(response.body); 
-   print(data);
+   //print(data);
+   data['albums'].forEach((albumData){ 
+      final album=Album.fromMap(albumData);
+      _fetchedAlbums.add(album);
+   });
+   print(_fetchedAlbums);
     } 
-    catch(error){
+     catch(error){
       print(error);
     }
-   
-  } 
+   _availableAlbums = _fetchedAlbums;
+  }
+  String getAlbumCover(int albumId){
+    return api+'album/cover/'+ albumId.toString();
+  }
 }
 mixin Category_Model on Team_AppConnectedModel {}
 mixin Utility_Model on Team_AppConnectedModel { //utility model defines extra stuff details

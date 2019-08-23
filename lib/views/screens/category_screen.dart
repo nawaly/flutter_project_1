@@ -65,7 +65,7 @@ class CategoryScreen extends StatelessWidget {
                   padding: EdgeInsets.only(
                       left: index.isEven ? 20 : 0, right: index.isOdd ? 20 : 0),
                   child: ImageTextCard(
-                    album: model.getAvailableAlbums()[index],
+                    album: model.getAvailableAlbums()[index], model: model, padding: 10,
                   ),
                 );
               }, childCount: model.getAvailableAlbums().length),
@@ -94,7 +94,7 @@ class CategoryScreen extends StatelessWidget {
                   padding: EdgeInsets.only(
                       left: index.isEven ? 20 : 0, right: index.isOdd ? 20 : 0),
                   child: ImageTextCard(
-                    album: model.getAvailableAlbums()[index],
+                    album: model.getAvailableAlbums()[index], model: model, padding: 10,
                   ),
                 );
               }, childCount: model.getAvailableAlbums().length),

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_image/network.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pt_project_1/data/scoped_model/main.dart';
 import 'package:pt_project_1/models/album.dart';
 //first image and third image with text,avatar,comment, on top in today screen
 class AlbumCard extends StatelessWidget {
   final Album album;
   final double padding;
-
-  const AlbumCard({Key key, @required this.album, @required this.padding})
+ final MainModel model;
+  const AlbumCard({Key key, @required this.album, @required this.padding, @required this.model})
       : super(key: key);
 
   @override
@@ -21,7 +23,7 @@ class AlbumCard extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 image: DecorationImage(
-                    image: AssetImage(album.cover), fit: BoxFit.cover)),
+                    image: NetworkImageWithRetry(model.getAlbumCover(album.id)), fit: BoxFit.cover)),
           ),
           album.isHot
               ? Padding(

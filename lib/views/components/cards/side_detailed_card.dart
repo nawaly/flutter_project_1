@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:pt_project_1/data/scoped_model/main.dart';
 import 'package:pt_project_1/models/album.dart';
 
 //one of the last 4 images in today screen
 class SideDetailedCard extends StatelessWidget {
   final Album album;
+  final MainModel model;
 
-  const SideDetailedCard({Key key, @required this.album}) : super(key: key);
+  const SideDetailedCard({Key key, @required this.album, @required this.model}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(

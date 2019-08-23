@@ -36,7 +36,7 @@ class DiscoverScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.9,
                 child: ImageTextCard(
                   album: model.getAvailableAlbums()[index],
-                  padding: 10, //declared and defined in ImageTextCard
+                  padding: 10, model: model, //declared and defined in ImageTextCard
                 
                 ),
               );
@@ -68,7 +68,7 @@ class DiscoverScreen extends StatelessWidget {
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
               return AuthorProfileCard(
-                album: model.getAvailableAlbums()[index],
+                album: model.getAvailableAlbums()[index], model: model,
               );
             },
             childCount: model.getAvailableAlbums().length,
@@ -106,7 +106,7 @@ class DiscoverScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.9,
                 child: DetailedNewsCard(
                   album: model.getAvailableAlbums()[index], 
-                  padding: 10, //bigness of the image from image
+                  padding: 10, model: model, //bigness of the image from image
                 
                 ),
               );
@@ -138,7 +138,7 @@ class DiscoverScreen extends StatelessWidget {
            SliverList( //sliverlist of last card, SideDetailedCard
         delegate: SliverChildBuilderDelegate(
           (BuildContext context, int index) {
-            return SideDetailedCard(album: model.getAvailableAlbums()[index]);
+            return SideDetailedCard(album: model.getAvailableAlbums()[index], model: model,);
           },
           childCount: model.getAvailableAlbums().length,
         ),
@@ -174,7 +174,7 @@ class DiscoverScreen extends StatelessWidget {
               return Container(
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: ImageTextCard(
-                  album: model.getAvailableAlbums()[index],
+                  album: model.getAvailableAlbums()[index], model: model, padding: 10,
             
                 ),
               );
@@ -195,7 +195,7 @@ class DiscoverScreen extends StatelessWidget {
         SliverList( //sliverlist of last card, SideDetailedCard
         delegate: SliverChildBuilderDelegate(
           (BuildContext context, int index) {
-            return SideDetailedCard(album: model.getAvailableAlbums()[index]);
+            return SideDetailedCard(album: model.getAvailableAlbums()[index], model: model,);
           },
           childCount: model.getAvailableAlbums().length,
         ),

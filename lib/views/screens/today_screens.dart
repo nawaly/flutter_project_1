@@ -15,7 +15,7 @@ class TodayScreen extends StatelessWidget {
       BuildContext context, 
       Widget child, MainModel model) { 
 
-        return model.getAvailableAlbums().isEmpty ?
+        return model.getAvailableAlbums().isNotEmpty ?
         CustomScrollView(slivers: <Widget>[
       SliverList(
         //sliverlist of first day and date
@@ -34,11 +34,11 @@ class TodayScreen extends StatelessWidget {
           return index.isEven
               ? AlbumCard(
                   album: model.getAvailableAlbums()[index],
-                  padding: 20,
+                  padding: 20, model: model,
                 )
               : DetailedNewsCard(
                   album: model.getAvailableAlbums()[index],
-                  padding: 20,
+                  padding: 20, model: model,
                 );
         }, childCount:  model.getAvailableAlbums().length,
         ),
@@ -63,7 +63,8 @@ class TodayScreen extends StatelessWidget {
                 left: index.isEven ? 20 : 0, //if even left=20
                 right: index.isOdd ? 20 : 0), //if odd right=20
             child: ImageTextCard(
-              album: model.getAvailableAlbums()[index],
+              
+              album: model.getAvailableAlbums()[1], model: model, padding: 10,
             ),
           );
         }, childCount:  model.getAvailableAlbums().length,
@@ -90,7 +91,7 @@ class TodayScreen extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: ImageTextCard(
-              album: model.getAvailableAlbums()[index],
+              album: model.getAvailableAlbums()[index], model: model, padding: 10,
             ),
           );
         }, childCount: model.getAvailableAlbums().length,
@@ -100,12 +101,13 @@ class TodayScreen extends StatelessWidget {
         //sliverlist of last card, SideDetailedCard
         delegate: SliverChildBuilderDelegate(
           (BuildContext context, int index) {
-            return SideDetailedCard(album: model.getAvailableAlbums()[index]);
+            return SideDetailedCard(album: model.getAvailableAlbums()[index], model: model,);
           },
           childCount:  model.getAvailableAlbums().length,
         ),
       ),
-    ]):Text('album is empty');
+    ]):Center(child: 
+    Text('album is empty'),);
       },);
   }
 }

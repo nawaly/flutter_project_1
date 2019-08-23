@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_image/network.dart';
+import 'package:pt_project_1/data/scoped_model/main.dart';
 import 'package:pt_project_1/models/album.dart';
 
 // first image in grid images, text on top of image in today screen
@@ -6,10 +8,10 @@ class ImageTextCard extends StatelessWidget {
   //objects
   final Album album;
   final double padding;
-
+  final MainModel model;
   const ImageTextCard({
     Key key,
-    @required this.album, this.padding,
+    @required this.album, @required this.padding, @required this.model,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class ImageTextCard extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
-                  image: AssetImage(album.cover), fit: BoxFit.cover),
+                  image: NetworkImageWithRetry(model.getAlbumCover(album.id)), fit: BoxFit.cover),
             ),
           ),
           Align(

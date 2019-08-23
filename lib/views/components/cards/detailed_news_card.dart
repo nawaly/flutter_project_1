@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_image/network.dart';
+import 'package:pt_project_1/data/scoped_model/main.dart';
 import 'package:pt_project_1/models/album.dart';
 //second image divided with image & text at the bottom in today screen
 class DetailedNewsCard extends StatelessWidget {
   final Album album;
   final double padding;
+final MainModel model;
 
-
-  const DetailedNewsCard({Key key, @required this.album, @required this.padding}) : super(key: key);
+  const DetailedNewsCard({Key key, @required this.album, @required this.padding, @required this.model}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,7 +27,7 @@ class DetailedNewsCard extends StatelessWidget {
             width: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(album.cover), fit: BoxFit.cover),
+                  image: NetworkImageWithRetry(model.getAlbumCover(album.id)), fit: BoxFit.cover),
               borderRadius: BorderRadius.only(
                   topRight: Radius.circular(20), topLeft: Radius.circular(20)),
             ),

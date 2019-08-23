@@ -8,8 +8,10 @@ final String subtitle; //after heading information
 final bool isHot;
 final int authorId;
 final String details;
-
-  Album({
+final int id; //albumId
+  Album(
+   {
+   @required this.id,
    @required this.cover,
    @required this.title,
    @required this.authorId,
@@ -17,21 +19,23 @@ final String details;
    @required this.details, 
    @required this.isHot});
 
-    Album.fromMap(Map<String, dynamic> map)
+    Album.fromMap(Map<String, dynamic> map,)
       : 
         assert(map['cover'] != null),
         assert(map['title'] != null),
-        assert(map['authorId'] != null),
+        assert(map['author_id'] != null),
         assert(map['subtitle'] != null),
-        assert(map['detals'] != null),
+        assert(map['details'] != null),
         assert(map['isHot'] != null),
+        assert(map['id'] != null),
 
         cover = map['cover'],
         title = map['title'],
-        authorId = map['authorId'],
+        authorId = map['author_id'],
         subtitle = map['subtitle'],
         details = map['details'],
-        isHot = map['isHot'];
+        id = map['id'],
+        isHot = map['isHot']==1?true:false;
 }
 
 //was for testing only,not required anymore
