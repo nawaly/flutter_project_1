@@ -9,8 +9,8 @@ class SimpleHeaders extends StatelessWidget {
   final bool showStar;
 // showTitle & showSubtitle may or may not be there, thats why not @required
   const SimpleHeaders(
-      {Key key,
-      this.title,
+      {Key key, 
+      this.title, //can be there or not
       @required this.subtitle,
       @required this.padding,
       this.showButton,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_image/network.dart';
 import 'package:pt_project_1/data/scoped_model/main.dart';
 import 'package:pt_project_1/models/album.dart';
 
@@ -30,7 +31,7 @@ class SideDetailedCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     image: DecorationImage(
-                      image: AssetImage(album.cover),
+                      image: NetworkImageWithRetry(model.getAlbumCover(album.id)),
                       fit: BoxFit.cover,
                     ),
                     color: Colors.grey,
@@ -53,7 +54,7 @@ class SideDetailedCard extends StatelessWidget {
                         height: 14, //of text
                       ),
                       Text(
-                        'Mozilla hasannounced a new version of its browser for augumented reality',
+                        'Mozilla has announced a new version of its browser for augumented reality',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 17,
