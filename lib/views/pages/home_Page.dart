@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:pt_project_1/data/scoped_model/main.dart';
+import 'package:pt_project_1/views/pages/post_page.dart';
 import 'package:pt_project_1/views/screens/category_screen.dart';
 import 'package:pt_project_1/views/screens/discover_screen.dart';
-import 'package:pt_project_1/views/screens/profile_screen.dart';
 import 'package:pt_project_1/views/screens/search_screen.dart';
 import 'package:pt_project_1/views/screens/today_screens.dart';
 
 class HomePage extends StatefulWidget {
+  final MainModel model;
+
+  const HomePage({Key key, @required this.model}) : super(key: key);
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -13,18 +17,29 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   //declarations and keys over here
   int _currentIndex = 0;
+  // final MainModel _model=MainModel();
+  
 
+  _HomePageState();
+@override
+void initState() {
+  widget.model.getAlbums();
+// _model.getAlbums();
+    super.initState();
+  }
   @override
+  
   Widget build(BuildContext context) { //builderContext iterates index
     //typecust is widget, takes anything in widget
     List<Widget> _screens = <Widget>[
       //private array name screen of type widget
       //screen pages classes which to be called
-      TodayScreen(),
+      TodayScreen(model: widget.model,),
       CategoryScreen(),
       DiscoverScreen(),
       SearchScreen(),
-      ProfileScreen(),
+      // ProfileScreen(),
+      PostPage(),
       Container(
         height: 400,
         color: Colors.blueAccent,

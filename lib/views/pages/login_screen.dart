@@ -90,6 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           top: 40,
                           right: 40,
                           bottom: 10),
+                          
                       child: TextFormField(
                         focusNode: _emailFocusNode,
                         controller: _emailTextEditingController,

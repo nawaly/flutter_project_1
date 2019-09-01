@@ -10,7 +10,8 @@ class SearchScreen extends StatelessWidget {
           delegate: SliverChildListDelegate([
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: SimpleHeaders(padding: 10, subtitle: 'Search', showButton: false, showStar: false, showTitle: false,),
+              child: SimpleHeaders(padding: 10, 
+              subtitle: 'Search', showButton: false, showStar: false, showTitle: false,),
             )
           ]),
         )

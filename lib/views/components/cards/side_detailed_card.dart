@@ -50,6 +50,9 @@ class SideDetailedCard extends StatelessWidget {
                             color: Colors.black,
                             fontSize: 14,
                           )),
+                           IconButton(icon: Icon(Icons.delete), onPressed: () {
+                             model.deleteAlbum(albumId: album.id);
+                           },),
                       SizedBox(
                         height: 14, //of text
                       ),

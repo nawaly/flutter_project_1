@@ -16,7 +16,7 @@ class ProfileScreen extends StatelessWidget {
                   style: TextStyle(color: Colors.red),
                 ),
                 onPressed: () {
-                  model.getAlbums();
+                  model.deleteAlbum(albumId: 1);
                 },
               ),
             ));

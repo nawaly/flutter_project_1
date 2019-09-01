@@ -36,7 +36,7 @@ mixin Album_Model on Team_AppConnectedModel {
       _fetchedAlbums.add(album);
    });
    print(_fetchedAlbums);
-    } 
+    }
      catch(error){
       print(error);
     }
@@ -44,6 +44,30 @@ mixin Album_Model on Team_AppConnectedModel {
   }
   String getAlbumCover(int albumId){
     return api+'album/cover/'+ albumId.toString();
+  }
+  //**************
+  Future<void> deleteAlbum({@required int albumId}) async {
+     List<Album> _fetchedAlbums=[];
+  try {
+     http.Response response= await http.delete(api+'album/' +albumId.toString());
+      Map<String,dynamic> data = json.decode(response.body);
+     print(response.body);
+     if(response.statusCode==200){
+      _removeAlbum(albumId: albumId);
+     }
+  } catch(error) {
+    print(error);
+  }
+  
+  }
+  void _removeAlbum({@required albumId}){
+    final album=_availableAlbums.where((album)=>album.id==albumId); //where= helps to get any album of album.id in albumId
+    _availableAlbums.remove(album);
+    if(album!=null){
+      _availableAlbums.removeWhere((album)=>album.id==albumId);
+      print(album);
+    }
+    notifyListeners();
   }
 }
 mixin Category_Model on Team_AppConnectedModel {}
